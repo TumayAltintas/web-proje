@@ -1,17 +1,7 @@
-import {createStore} from "vuex";
-import {collection, getDocs} from "firebase/firestore";
-import {db} from "../firebase";
+import { createStore } from 'vuex'
+export default createStore({
+    state: {
 
-
-const store = createStore({
-    state: {}
-
-
+    },
 
 })
-
-
-export default store;
-
-
-

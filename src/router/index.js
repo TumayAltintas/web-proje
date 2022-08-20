@@ -23,6 +23,7 @@ const router = createRouter({
 		{path : "/UrunYukle",component : () => import('../yükleme/urunYukle.vue') },
 
 
+
 	]
 });
 

@@ -90,7 +90,11 @@ export default {
       productlist.push(list)
     });
     this.product = productlist
+    console.log(this.$store.getters.user)
 
+
+  },
+  created() {
 
   },
   methods: {

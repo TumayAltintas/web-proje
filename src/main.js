@@ -8,7 +8,7 @@ import 'bulma/css/bulma.css'
 import { getFirestore } from 'firebase/firestore';
 import { initializeApp } from "firebase/app";
 import store from "./stores/counter";
-import {useCounterStore} from "./piniaStore";
+import {useTodos} from "./piniaStore";
 
 
 // const firebaseConfig = {
@@ -29,5 +29,6 @@ import {useCounterStore} from "./piniaStore";
 const app = createApp(App)
 app.use(store)
 app.use(router)
+
 
 app.mount('#app')

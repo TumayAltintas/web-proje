@@ -21,7 +21,7 @@
     </div>
     <div class="container text-center headeralt">
       <div class="row gx-2">
-        <div class="col animate__animated animate__fadeInUp " v-for="products in filteritem.slice(0,slice)">
+        <div class="col animate__animated animate__fadeInUp " v-for="products in filteritem.slice(0,this.slice)">
           <div class="p-3 Product opacity-100 shadow-lg p-3 mb-5 bg-body rounded">
             <div><a :href="'/urun-detay/'+product.name">
               <img style="max-width: 100px" :src="products.image">
@@ -31,7 +31,7 @@
               <a>{{ products.name }}</a>
             </div>
 
-            <a class="fw-bold" :href="'/urun-detay/'+product.id">{{ products.description.substring(0, 20)}}</a>
+            <a class="fw-bold" :href="'/urun-detay/'+product.id">{{ products.description}}</a>
             <div><span><strong>{{ products.price }} TL</strong></span></div>
             <br>
             <div>
@@ -54,7 +54,7 @@
 import AddToCart from "../cart/UrunDetay.vue";
 import Cart from "../cart/cart.vue";
 
-import {collection, getDocs, getFirestore} from "firebase/firestore";
+import {collection, getDocs} from "firebase/firestore";
 
 import {db} from "../firebase";
 import {addDoc} from "firebase/firestore";

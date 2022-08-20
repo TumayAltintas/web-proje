@@ -10,8 +10,7 @@
 
 import Header2 from "./Headers/Header2.vue";
 import BotHeaders from "./Headers/BotHeaders.vue";
-import {collection, getDocs} from "firebase/firestore";
-import {db} from "./firebase";
+
 
 // import {onMounted,ref} from "vue";
 // import {getAuth,onAuthStateChanged,signOut} from "firebase/auth";
@@ -55,28 +54,6 @@ export default {
 
 
 
-  async mounted() {
-    const querySnapshot = await getDocs(collection(db, 'products'));
-    let productlist = []
-    querySnapshot.forEach((doc) => {
-      const list = {
-        id: doc.id,
-        description: doc.data().description,
-        image: doc.data().image,
-        name: doc.data().name,
-        price: doc.data().price,
-      }
-      productlist.push(list)
-    });
-    this.product = productlist
-    this.$store.commit('item',this.product)
-
-
-
-  },created() {
-
-    console.log(this.$store.getters.bilgisayar)
-  }
 
 }
 </script>
