@@ -2,28 +2,36 @@
 
   <div style="background-color: white ">
     <div class="search-wrapper arama">
-      <button type="button" class="btn btn-light" @click="ekleasd">Listeye ekle</button>
+
 
       <input type="text"
              v-model="searchQuery"
              placeholder="Ürün ara"/>
     </div>
+    <div class="dropdown-center sortby">
+      <div class="dropdown">
+        <a class="btn btn-light dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Sıralama
+        </a>
+        <ul class="dropdown-menu">
+          <li><a @click="sortby" class="dropdown-item">Fiyat artan</a></li>
+          <li><a @click="longby" class="dropdown-item" h>Fiyat azalan</a></li>
+        </ul>
+      </div>
+    </div>
     <div class="container text-center headeralt">
       <div class="row gx-2">
-        <div class="col animate__animated animate__fadeInUp " v-for="products in filteritem.slice(0,slice)"
-        >
-
-
+        <div class="col animate__animated animate__fadeInUp " v-for="products in filteritem.slice(0,slice)">
           <div class="p-3 Product opacity-100 shadow-lg p-3 mb-5 bg-body rounded">
             <div><a :href="'/urun-detay/'+product.name">
-              <img :src="products.image">
+              <img style="max-width: 100px" :src="products.image">
 
             </a></div>
             <div>
               <a>{{ products.name }}</a>
             </div>
 
-            <a class="fw-bold" :href="'/urun-detay/'+product.id">{{ products.description }}</a>
+            <a class="fw-bold" :href="'/urun-detay/'+product.id">{{ products.description.substring(0, 20)}}</a>
             <div><span><strong>{{ products.price }} TL</strong></span></div>
             <br>
             <div>
@@ -90,8 +98,7 @@ export default {
     });
     this.product = productlist
 
-
-
+    console.log(this.$store.state.products)
 
 
   },
@@ -137,25 +144,27 @@ export default {
       this.slice += 12
 
     },
-
-
-
+    sortby(){
+      this.filteritem.sort((a,b)=> (a.price > b.price ? 1 : -1))
+    },
+    longby(){
+      this.filteritem.sort((a,b)=> (a.price < b.price ? 1 : -1))
+    }
 
 
   },
-  computed:{
-    filteritem(){
+  computed: {
+    filteritem() {
       const quary = this.searchQuery.toLowerCase()
-      if (this.searchQuery === ''){
+      if (this.searchQuery === '') {
         return this.product
       }
       return this.product.filter((user) => {
-        return Object.values(user).some((word)=>
+        return Object.values(user).some((word) =>
             String(word).toLowerCase().includes(quary))
       })
     }
   },
-
 
 
 }
@@ -169,7 +178,7 @@ div.Product {
   margin-top: 40px;
   margin-bottom: 70px;
   margin-left: 20px;
-  height: 500px;
+  height: 350px;
   width: 300px;
 
 }
@@ -188,7 +197,10 @@ div.btnurunyukle {
 div.arama {
   text-align: center;
 }
-
+div.sortby {
+  text-align: right;
+  margin-right: 45px;
+}
 
 
 </style>

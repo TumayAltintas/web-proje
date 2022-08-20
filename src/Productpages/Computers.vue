@@ -1,28 +1,34 @@
 <template>
-
-  <!--  <div  class="alert alert-primary aler" role="alert">-->
-  <!--    A simple primary alert—check it out!-->
-  <!--  </div>-->
-  <div style="background-color: white ">
-    <div class="search-wrapper arama">
+  <div class="search-wrapper arama">
     <input type="text"
            v-model="searchQuery"
            placeholder="Ürün ara"/>
   </div>
-    <div class="container text-center headeralt">
-      <div class="row gx-2">
-        <div class="col animate__animated animate__fadeInUp " v-for="(products, item) in filteritem.slice(0,slice)"
-             >
-
-
+  <div class="dropdown-center sortby">
+    <div class="dropdown">
+      <a class="btn btn-light dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Sıralama
+      </a>
+      <ul class="dropdown-menu">
+        <li><a @click="sortby" class="dropdown-item">Fiyat artan</a></li>
+        <li><a @click="longby" class="dropdown-item">Fiyat azalan</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="">
+    <div class="container atry ">
+      <div class="row g-2">
+        <div class="col-lg-auto animate__animated animate__fadeInUp "
+             v-for="(products, index) in filteritem.slice(0,slice) "
+             :key="index">
           <div class="p-3 Product opacity-100 shadow-lg p-3 mb-5 bg-body rounded">
-            <div><a :href="'/urun-detay/'+product.name">
-              <img :src="products.image">
+            <div>
+              <img style="width: 200px" :src="products.image">
+            </div>
 
-            </a></div>
-            <div><a>{{ products.name }}</a></div>
-            <a class="fw-bold" :href="'/urun-detay/'+product.id">{{ products.description.substring(0,50) }}</a>
-            <div><span><strong>{{ products.price }}</strong></span></div>
+            <a class="fw-bold" :href="'/urun-detay/'+product.id">{{ products.description.substring(0, 20) }}</a>
+            <div><span><strong>{{ products.price }} TL</strong></span></div>
+
             <br>
             <div>
               <button type="button" class="btn btn-light" @click="addItemToCart(products)">Sepete ekle</button>
@@ -31,10 +37,15 @@
               <button type="button" class="btn btn-light" @click="addToList(products)">Listeye ekle</button>
             </div>
           </div>
+
+        </div>
+        <div class="btnurunyukle">
+          <button @click="slicearttır" type="button" class="btn btn-danger yeniurun">Daha çok ürün yükle
+          </button>
         </div>
       </div>
     </div>
-    <div class="btnurunyukle"> <button @click="slicearttır" type="button" class="btn btn-danger yeniurun">Daha çok ürün yükle</button></div>
+
   </div>
 
 
@@ -43,32 +54,27 @@
 <script>
 
 
-import {collection, getDocs, getFirestore} from "firebase/firestore";
-
-const db = getFirestore();
+import {collection, getDocs} from "firebase/firestore";
+import {db} from "../firebase";
 import {addDoc} from "firebase/firestore";
 import {ref, onMounted} from "vue";
+
 
 export default {
 
   data: function () {
     return {
-      product: '',
-
+      product: [],
       giden: [],
-
+      fiyat: '',
       setdescription: '',
       setimage: '',
       setname: '',
       setprice: '',
       slice: 12,
       searchQuery: '',
-
-
     }
-
   },
-
   async mounted() {
     const querySnapshot = await getDocs(collection(db, 'products'));
     let productlist = []
@@ -79,14 +85,14 @@ export default {
         image: doc.data().image,
         name: doc.data().name,
         price: doc.data().price,
+        showprice : doc.data().showprice
       }
       productlist.push(list)
     });
     this.product = productlist
 
+
   },
-
-
   methods: {
     async addItemToCart(products) {
       this.setdescription = products.description
@@ -124,58 +130,80 @@ export default {
 
     },
     slicearttır() {
-
       this.slice += 12
-
+    },
+    sortby(){
+      this.filteritem.sort((a,b)=> (a.price > b.price ? 1 : -1))
+    },
+    longby(){
+      this.filteritem.sort((a,b)=> (a.price < b.price ? 1 : -1))
     }
   },
-  computed:{
-    filteritem(){
+  computed: {
+    filteritem() {
       const quary = this.searchQuery.toLowerCase()
-      if (this.searchQuery === ''){
+      if (this.searchQuery === '') {
         return this.product
       }
       return this.product.filter((user) => {
-        return Object.values(user).some((word)=>
+        return Object.values(user).some((word) =>
             String(word).toLowerCase().includes(quary))
       })
-    }
-  }
+    },
 
+    // sortByLowPrice: function () {
+    //   return this.products.sort(function (a, b) {
+    //     return a.price - b.price;
+    //   })
+    // },
+    // sortByHigherPrice: function () {
+    //   return this.products.sort(function (a, b) {
+    //     return a.price - b.price;
+    //   })
+    // }
+  }
 }
 </script>
-
 <style scoped>
-
-
 div.Product {
-  margin-top: 40px;
-  margin-bottom: 70px;
-  margin-left: 20px;
-  height: 500px;
-  width: 300px;
+
+
+
+
+  width: 250px;
 
 }
-
-div.aler {
-  margin-left: 650px;
-  max-width: 400px;
-}
-
 
 button.yeniurun {
   width: 500px;
   text-align: center;
 }
-div.btnurunyukle{
+
+div.btnurunyukle {
   text-align: center;
-  margin-bottom: 55px;
+  margin-bottom: 70px;
   margin-top: 5px;
 }
+
 div.arama {
   text-align: center;
 }
 
+div.alldiv {
+  background-color: white;
+  display: flex;
+  text-align: center;
+}
+
+div.sortby {
+  text-align: right;
+  margin-right: 45px;
+}
+div.atry{
+  text-align: center;
+  padding-left: 100px;
+
+}
 </style>
 
 

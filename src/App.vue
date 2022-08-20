@@ -12,7 +12,7 @@ import Header2 from "./Headers/Header2.vue";
 import BotHeaders from "./Headers/BotHeaders.vue";
 import {collection, getDocs} from "firebase/firestore";
 import {db} from "./firebase";
-test123
+
 // import {onMounted,ref} from "vue";
 // import {getAuth,onAuthStateChanged,signOut} from "firebase/auth";
 //
