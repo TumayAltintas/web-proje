@@ -4,6 +4,11 @@
            v-model="searchQuery"
            placeholder="Ürün ara"/>
   </div>
+  <div>
+    <label for="customRange" class="form-label">Example range</label>
+    <input v-model="stepprice" type="range" class="form-range" min="0" max="2000" id="customRange">
+    <p style="text-align: center">{{stepprice}}</p>
+  </div>
   <div class="dropdown-center sortby">
     <div class="dropdown">
       <a class="btn btn-light dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -73,6 +78,7 @@ export default {
       setprice: '',
       slice: 12,
       searchQuery: '',
+      stepprice : 0
     }
   },
   async mounted() {
@@ -90,11 +96,7 @@ export default {
       productlist.push(list)
     });
     this.product = productlist
-    console.log(this.$store.getters.user)
 
-
-  },
-  created() {
 
   },
   methods: {

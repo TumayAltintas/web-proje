@@ -51,7 +51,7 @@
                   Beni hatırla
                 </label>
               </div>
-              <a href="#!" class="text-body">Şifremi unuttum ?</a>
+              <a  class="text-body">Şifremi unuttum ?</a>
             </div>
 
             <div class="text-center text-lg-start mt-4 pt-2">
@@ -77,7 +77,7 @@
 
 <script setup>
 import {ref} from "vue";
-import {getAuth, signInWithEmailAndPassword,GoogleAuthProvider,signInWithPopup} from "firebase/auth";
+import {getAuth, signInWithEmailAndPassword} from "firebase/auth";
 import {useRouter} from "vue-router"
 
 
@@ -115,8 +115,6 @@ const register = () => {
 }
 
 
-const signInWithGoogle = () =>{
 
-}
 </script>
 

@@ -52,8 +52,8 @@ export default {
 
     axios.get("https://my-json-server.typicode.com/TumayAltintas/tmy/posts").then((response) => {
       this.productName = response.data
-      this.$store.state.products.push(this.product)
-      console.log(this.$store.state.products)
+
+
 
 
     })

@@ -27,7 +27,6 @@
         <router-link class="navbar-item fs-4" tag="li" to="/urundetay">
           <a style="color:dodgerblue;" class=" fw-bold">urundetay</a>
         </router-link>
-
         <!--        <router-link class="navbar-item fs-4" tag="li" to="/test">-->
         <!--          <a style="color:dodgerblue;" class=" fw-bold">test</a>-->
         <!--        </router-link>-->

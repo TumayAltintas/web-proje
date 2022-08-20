@@ -19,10 +19,18 @@
             <label>price</label>
             <input v-model="prices"  type="text" class="form-control" placeholder="Fiyat">
           </div>
+          <label>kayıt yeri</label>
+          <select v-model="yer"  class="form-select" aria-label="Default select example">
+            <option value="products">products</option>
+<!--            <option value="işlemci">işlemci</option>-->
+<!--            <option value="ram">ram</option>-->
+          </select>
           <div class="form-group">
             <label>Kategori</label>
             <select v-model="kategoris"  class="form-select" aria-label="Default select example">
               <option value="bilgisayar">bilgisayar</option>
+              <option value="işlemci">işlemci</option>
+              <option value="ram">ram</option>
             </select>
           </div>
           <div class="form-group">
@@ -69,8 +77,8 @@ data(){
     prices : '',
     kategoris : '',
     types : '',
-    marka : ''
-
+    marka : '',
+    yer : ''
 
   }
 },
@@ -80,7 +88,7 @@ data(){
 
     async addItemToCart(products) {
 
-      const docRef = await addDoc(collection(db, "products"), {
+      const docRef = await addDoc(collection(db, this.yer), {
         description: this.descriptions,
         image: this.images,
         price: this.prices,
