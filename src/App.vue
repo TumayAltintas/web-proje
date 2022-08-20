@@ -4,6 +4,7 @@
     <div>
       <router-view></router-view>
     </div>
+    {{querySnapshot}}
   </div>
 </template>
 <script>
@@ -12,33 +13,8 @@ import Header2 from "./Headers/Header2.vue";
 import BotHeaders from "./Headers/BotHeaders.vue";
 
 
-// import {onMounted,ref} from "vue";
-// import {getAuth,onAuthStateChanged,signOut} from "firebase/auth";
-//
-//test
-//
-// const isLoggenIn = ref(false)
-//
-// let auth;
-// onMounted(() =>{
-//   auth=getAuth()
-//   onAuthStateChanged(auth,(user)=>{
-//     if (user){
-//       isLoggenIn.value=true
-//     }else {
-//       isLoggenIn.value = false
-//     }
-//   })
-//
-// })
-//
-// const handleSignOut = () =>{
-//   signOut(auth).then(()=>{
-//     router.push("/")
-//   })
-//
-// }
 
+//tester
 
 export default {
   components: {
@@ -46,12 +22,6 @@ export default {
     Header2,
     BotHeaders
   },
-  data(){
-    return{
-      product : []
-    }
-  },
-
 
 
 
