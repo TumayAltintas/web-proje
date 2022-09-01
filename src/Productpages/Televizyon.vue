@@ -1,5 +1,7 @@
 <template>
-
+  // <img :src="this.$route.params.image">
+  //     <p>{{this.$route.params.price}}</p>
+  // <p>{{this.$route.params.description}}</p>
   <div style="background-color: white ">
     <div class="search-wrapper arama">
 
@@ -31,7 +33,11 @@
               <a>{{ products.name }}</a>
             </div>
 
-            <a class="fw-bold" :href="'/urun-detay/'+product.id">{{ products.description.substring(0, 20)}}</a>
+            <router-link :to="{ name: 'showdetails', params: { id: products.id, description: products.description,image: products.image,price: products.price }}">
+              <a  class="fw-bold">{{ products.description.substring(0, 50)}}</a>
+            </router-link>
+
+
             <div><span><strong>{{ products.price }} TL</strong></span></div>
             <br>
             <div>

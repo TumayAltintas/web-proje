@@ -24,9 +24,7 @@
         <!--        <router-link class="navbar-item fs-4" tag="li" to="/sepet">-->
         <!--          <a style="color:dodgerblue;" class=" fw-bold">sepet</a>-->
         <!--        </router-link>-->
-        <router-link class="navbar-item fs-4" tag="li" to="/urundetay">
-          <a style="color:dodgerblue;" class=" fw-bold">urundetay</a>
-        </router-link>
+
         <!--        <router-link class="navbar-item fs-4" tag="li" to="/test">-->
         <!--          <a style="color:dodgerblue;" class=" fw-bold">test</a>-->
         <!--        </router-link>-->
@@ -46,6 +44,12 @@
             <a class="nav-item">
               <router-link tag="li" to="/bilgisayar">
                 <a class="fs-5 fw-bold">Bilgisayar</a>
+              </router-link>
+            </a>
+            <br>
+            <a class="nav-item">
+              <router-link tag="li" to="/Buzdolabı">
+                <a class="fs-5 fw-bold">buzdolabı</a>
               </router-link>
             </a>
             <br>
@@ -116,7 +120,6 @@
                 <div class="offcanvas-body">
                   <div class="imgLoc">
                     <img src="src/components/Pictures/TopHeader/bear.png" class="ofcanvas">
-
                   </div>
                   <div class="ofcanvaslinks">
                     <div class="ofcanvasLink">
@@ -147,24 +150,24 @@
                     <!--                        </router-link>-->
                     <!--                      </a>-->
                     <!--                    </div>-->
-                    <div class="ofcanvasLink">
-                      <a class="nav-item">
-                        <router-link tag="li" to="/cart">
-                          <a style="color:dodgerblue;" class="nav-item ">
-                            <img src="../components/Pictures/TopHeader/icons8-address-100.png">
-                            Adreslerim</a>
-                        </router-link>
-                      </a>
-                    </div>
-                    <div class="ofcanvasLink">
-                      <a class="nav-item">
-                        <router-link tag="li" to="/cart">
-                          <a style="color:dodgerblue;" class="nav-item ">
-                            <img src="../components/Pictures/TopHeader/icons8-lock-100.png">
-                            Güvenlik</a>
-                        </router-link>
-                      </a>
-                    </div>
+<!--                    <div class="ofcanvasLink">-->
+<!--                      <a class="nav-item">-->
+<!--                        <router-link tag="li" to="/cart">-->
+<!--                          <a style="color:dodgerblue;" class="nav-item ">-->
+<!--                            <img src="../components/Pictures/TopHeader/icons8-address-100.png">-->
+<!--                            Adreslerim</a>-->
+<!--                        </router-link>-->
+<!--                      </a>-->
+<!--                    </div>-->
+<!--                    <div class="ofcanvasLink">-->
+<!--                      <a class="nav-item">-->
+<!--                        <router-link tag="li" to="/cart">-->
+<!--                          <a style="color:dodgerblue;" class="nav-item ">-->
+<!--                            <img src="../components/Pictures/TopHeader/icons8-lock-100.png">-->
+<!--                            Güvenlik</a>-->
+<!--                        </router-link>-->
+<!--                      </a>-->
+<!--                    </div>-->
                     <div class="ofcanvasLink">
                       <a class="nav-item">
                         <a style="color:dodgerblue;" class="nav-item" @click="handleSignOut">

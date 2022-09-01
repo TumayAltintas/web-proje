@@ -4,7 +4,7 @@
     <div>
       <router-view></router-view>
     </div>
-    {{querySnapshot}}
+
   </div>
 </template>
 <script>

@@ -19,38 +19,41 @@
             <label>price</label>
             <input v-model="prices"  type="text" class="form-control" placeholder="Fiyat">
           </div>
-          <label>kayıt yeri</label>
-          <select v-model="yer"  class="form-select" aria-label="Default select example">
-            <option value="products">products</option>
-<!--            <option value="işlemci">işlemci</option>-->
-<!--            <option value="ram">ram</option>-->
-          </select>
           <div class="form-group">
-            <label>Kategori</label>
-            <select v-model="kategoris"  class="form-select" aria-label="Default select example">
-              <option value="bilgisayar">bilgisayar</option>
-              <option value="işlemci">işlemci</option>
-              <option value="ram">ram</option>
-            </select>
+            <label>show price</label>
+            <input v-model="shwproce"  type="text" class="form-control" placeholder="Fiyat">
           </div>
-          <div class="form-group">
-            <label>type</label>
-            <select v-model="types"  class="form-select" aria-label="Default select example">
-              <option value="ekrankartı">ekrankartı</option>
-              <option value="işlemci">işlemci</option>
-              <option value="ram">ram</option>
-            </select>
-          </div>
+<!--          <label>kayıt yeri</label>-->
+<!--          <select v-model="yer"  class="form-select" aria-label="Default select example">-->
+<!--            <option value="products">products</option>-->
+<!--&lt;!&ndash;            <option value="işlemci">işlemci</option>&ndash;&gt;-->
+<!--&lt;!&ndash;            <option value="ram">ram</option>&ndash;&gt;-->
+<!--          </select>-->
+<!--          <div class="form-group">-->
+<!--            <label>Kategori</label>-->
+<!--            <select v-model="kategoris"  class="form-select" aria-label="Default select example">-->
+<!--              <option value="beyazeşya">beyazeşya</option>-->
+<!--&lt;!&ndash;              <option value="işlemci">işlemci</option>&ndash;&gt;-->
+<!--&lt;!&ndash;              <option value="ram">ram</option>&ndash;&gt;-->
+<!--            </select>-->
+<!--          </div>-->
+<!--          <div class="form-group">-->
+<!--            <label>type</label>-->
+<!--            <select v-model="types"  class="form-select" aria-label="Default select example">-->
+<!--              <option value="buzdolabi">buzdolabi</option>-->
+<!--              <option value="çamaşırmakinesi">çamaşırmakinesi</option>-->
+<!--              <option value="ocak">ocak</option>-->
+<!--              <option value="mikrodalgafırın">mikrodalgafırın</option>-->
+<!--              <option value="bulaşıkmakinesi">bulaşıkmakinesi</option>-->
+<!--            </select>-->
+<!--          </div>-->
           <div class="form-group">
             <label>Marka</label>
             <select v-model="marka"  class="form-select" aria-label="Default select example">
-              <option value="corsair">corsair</option>
-              <option value="kingston">kingston</option>
-              <option value="xpg">xpg</option>
-              <option value="team">team</option>
-              <option value="g.Skill">g.Skill</option>
-              <option value="apacer">apacer</option>
-              <option value="patriot ">patriot </option>
+<!--              <option value="vestel">vestel</option>-->
+<!--              <option value="bosch">bosch</option>-->
+              <option value="samsung">samsung</option>
+<!--              <option value="vestel">vestel</option>-->
             </select>
           </div>
           <div class="button-container d-flex  flex-column align-items-center">
@@ -78,7 +81,8 @@ data(){
     kategoris : '',
     types : '',
     marka : '',
-    yer : ''
+    yer : '',
+    shwproce : ''
 
   }
 },
@@ -88,13 +92,12 @@ data(){
 
     async addItemToCart(products) {
 
-      const docRef = await addDoc(collection(db, this.yer), {
+      const docRef = await addDoc(collection(db, 'buzdolabı'), {
         description: this.descriptions,
         image: this.images,
         price: this.prices,
-        kategori : this.kategoris,
-        type : this.types,
-        brand : this.marka
+        brand : 'lg',
+        showprice : this.shwproce
 
       });
 

@@ -52,10 +52,6 @@ export default {
 
     axios.get("https://my-json-server.typicode.com/TumayAltintas/tmy/posts").then((response) => {
       this.productName = response.data
-
-
-
-
     })
 
   }

@@ -30,12 +30,12 @@
           Filtre
         </a>
         <ul class="dropdown-menu">
-          <li><a @click="brandbyamd" href="?kategory=asus,amd" class="dropdown-item">Asus</a></li>
-          <li><a @click="brandbyamd" href="?kategory=amd" class="dropdown-item">AMD</a></li>
-          <li><a @click="brandbyamd" href="?kategory=intel" class="dropdown-item">Intel</a></li>
+<!--          <li><a @click="brandbyamd" href="?kategory=asus,amd" class="dropdown-item">Asus</a></li>-->
+<!--          <li><a @click="brandbyamd" href="?kategory=amd" class="dropdown-item">AMD</a></li>-->
+          <li><a @click="brandbyamd" href="?kategory=lg" class="dropdown-item">lg</a></li>
           <li><a @click="brandbyamd" href="?kategory=samsung" class="dropdown-item">samsung</a></li>
-          <li><a @click="brandbyamd" href="?kategory=amd" class="dropdown-item">AMD</a></li>
-          <li><a @click="brandbyamd" href="?kategory=intel" class="dropdown-item">Intel</a></li>
+<!--          <li><a @click="brandbyamd" href="?kategory=amd" class="dropdown-item">AMD</a></li>-->
+<!--          <li><a @click="brandbyamd" href="?kategory=intel" class="dropdown-item">Intel</a></li>-->
 
         </ul>
       </div>
@@ -57,7 +57,7 @@
             <div style="text-align: center"><router-link :to="{ name: 'showdetails', params: { id: products.id, description: products.description,image: products.image,price: products.price }}">
               <a  class="fw-bold">{{ products.description.substring(0, 30)}}</a>
             </router-link></div>
-            <div style="text-align: center"><span><strong>{{ products.price }} TL</strong></span></div>
+            <div style="text-align: center"><span><strong>{{ products.showprice }} TL</strong></span></div>
 
             <br>
             <div style="text-align: center">
@@ -163,10 +163,10 @@ export default {
   async mounted() {
     console.log(this.getcategorysleng)
 
-    this.querySnapshots = await getDocs(collection(db, 'products'));
+    this.querySnapshots = await getDocs(collection(db, 'buzdolabı'));
 
     if (this.getcategorysleng > 0) {
-      this.querySnapshots = await getDocs(query(collection(db, "products"), where(this.bywhere, "in", this.incategorys)));
+      this.querySnapshots = await getDocs(query(collection(db, "buzdolabı"), where('brand', "in", this.incategorys)));
     }
 
     let productlist = []
@@ -196,16 +196,7 @@ export default {
       })
     },
 
-    // sortByLowPrice: function () {
-    //   return this.products.sort(function (a, b) {
-    //     return a.price - b.price;
-    //   })
-    // },
-    // sortByHigherPrice: function () {
-    //   return this.products.sort(function (a, b) {
-    //     return a.price - b.price;
-    //   })
-    // }
+
   }
 
 }
@@ -255,99 +246,3 @@ a.btnfiltre {
 }
 </style>
 
-
-<!--<template>-->
-<!--  <div class="container text-center">-->
-<!--    <div class="row gx-2 ">-->
-<!--      <div class="col" v-for="product in productName " :key="product.id">-->
-<!--        <div class="p-3  Product" >-->
-
-<!--          <div><a>{{product.name}}</a></div>-->
-<!--          <div><img :src="product.thumbnail"></div>-->
-<!--          <a class="fw-bold">{{product.description}}</a>-->
-<!--          <div><span><strong>{{ product.price }} TL</strong></span></div>-->
-<!--          <div>-->
-<!--            <a class="productbtn ">Sepete Ekle-->
-<!--              <img src="src/components/Pictures/icons8-plus-32.png"></a>-->
-<!--          </div>-->
-
-
-<!--        </div>-->
-<!--      </div>-->
-
-<!--    </div>-->
-<!--  </div>-->
-<!--</template>-->
-
-<!--<script>-->
-<!--import axios from "axios";-->
-
-<!--export default {-->
-<!--  data() {-->
-<!--    return {-->
-<!--      productName: null,-->
-
-<!--    }-->
-<!--  },-->
-<!--  created: function () {-->
-
-<!--    axios.get("https://dummyjson.com/products?limit=10").then((response) => {-->
-<!--      this.productName = response.data.products-->
-
-
-<!--    })-->
-
-<!--  },-->
-
-<!--}-->
-<!--</script>-->
-
-<!--<style scoped>-->
-
-<!--ul.productlist {-->
-<!--  padding-top: 300px;-->
-<!--  padding-left: 100px;-->
-<!--  height: 300px;-->
-<!--  width: 300px;-->
-<!--  padding-bottom: 50px;-->
-<!--}-->
-
-<!--div.Product {-->
-<!--  margin-top: 40px;-->
-<!--  margin-bottom: 25px;-->
-<!--  margin-left: 20px;-->
-<!--  height: 400px;-->
-<!--  width: 300px;-->
-<!--}-->
-
-<!--button.cart {-->
-
-<!--  background-color: blue;-->
-<!--  border-radius: 50px;-->
-
-<!--}-->
-
-<!--div.proctname {-->
-
-<!--  height: 50px;-->
-
-
-<!--}-->
-
-<!--a.productbtn {-->
-
-<!--  padding: 20px;-->
-
-
-<!--}-->
-<!--ul.productall{-->
-
-<!--  padding-top: 300px;-->
-<!--  padding-left: 15px;-->
-<!--  height: 100px;-->
-<!--  width: 400px;-->
-<!--  padding-bottom: 150px;-->
-
-<!--}-->
-
-<!--</style>-->

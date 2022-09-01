@@ -15,12 +15,16 @@
 
 
           <div class="p-3 Product opacity-100 shadow-lg p-3 mb-5 bg-body rounded">
-            <div><a :href="'/urun-detay/'+product.name">
+            <div>
               <img :src="products.image">
 
-            </a></div>
-            <div><a>{{ products.name }}</a></div>
-            <a class="fw-bold" :href="'/urun-detay/'+product.id">{{ products.description }}</a>
+            </div>
+
+
+            <router-link :to="{ name: 'showdetails', params: { id: products.id, description: products.description,image: products.image,price: products.price }}">
+              <a  class="fw-bold">{{ products.description.substring(0, 50)}}</a>
+            </router-link>
+
             <div><span><strong>{{ products.price }} TL</strong></span></div>
             <br>
             <div>

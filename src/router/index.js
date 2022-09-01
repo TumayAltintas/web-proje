@@ -11,7 +11,7 @@ const router = createRouter({
 		{path : "/sadece",component: ()=> import("../sadeceUyeler.vue")},
 		{path : "/register",component: ()=> import("../components/LoginComp/Register.vue")},
 		{path : '/about',component: () => import('../auth/Auth.vue')},
-		{path : "/urundetay", component : () => import('../cart/UrunDetay.vue') },
+		{path : '/urundetay/:id', name: 'showdetails', component : () => import('../cart/UrunDetay.vue') },
 		{path : "/sepet",component : () => import('../cart/cart.vue') },
 		{path : "/Televizyon",component : () => import('../Productpages/Televizyon.vue') },
 		{path : "/bilgisayar",component : () => import('../Productpages/Computers.vue') },
@@ -21,6 +21,7 @@ const router = createRouter({
 		{path : "/SporUrunleri",component : () => import('../Productpages/SportÜrünleri.vue') },
 		{path : "/Listem",component : () => import('../KullanıcıComp/İsteklistem.vue') },
 		{path : "/UrunYukle",component : () => import('../yükleme/urunYukle.vue') },
+		{path : "/Buzdolabı",component : () => import('../Productpages/Buzdolabı.vue') },
 
 
 	]
