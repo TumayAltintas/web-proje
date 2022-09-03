@@ -30,13 +30,8 @@
           Filtre
         </a>
         <ul class="dropdown-menu">
-<!--          <li><a @click="brandbyamd" href="?kategory=asus,amd" class="dropdown-item">Asus</a></li>-->
-<!--          <li><a @click="brandbyamd" href="?kategory=amd" class="dropdown-item">AMD</a></li>-->
-          <li><a @click="brandbyamd" href="?kategory=lg" class="dropdown-item">lg</a></li>
-          <li><a @click="brandbyamd" href="?kategory=samsung" class="dropdown-item">samsung</a></li>
-<!--          <li><a @click="brandbyamd" href="?kategory=amd" class="dropdown-item">AMD</a></li>-->
-<!--          <li><a @click="brandbyamd" href="?kategory=intel" class="dropdown-item">Intel</a></li>-->
-
+          <li><a @click="brandbyamd" href="?kategory=amd" class="dropdown-item">amd</a></li>
+          <li><a @click="brandbyamd" href="?kategory=intel" class="dropdown-item">intel</a></li>
         </ul>
       </div>
     </div>
@@ -54,10 +49,14 @@
               <img style="width: 200px" :src="products.image">
             </div>
 
-            <div style="text-align: center"><router-link :to="{ name: 'showdetails', params: { id: products.id, description: products.description,image: products.image,price: products.price }}">
-              <a  class="fw-bold">{{ products.description.substring(0, 30)}}</a>
-            </router-link></div>
-            <div style="text-align: center"><span><strong>{{ products.showprice }} TL</strong></span></div>
+            <div style="text-align: center">
+              <router-link
+                  :to="{ name: 'showdetails', params: { id: products.id, description: products.description,image: products.image,price: products.price }}">
+                <a class="fw-bold">{{ products.description.substring(0, 30) }}</a>
+              </router-link>
+            </div>
+            <div style="text-align: center"><span><strong>{{ products.price }} TL</strong></span>
+            </div>
 
             <br>
             <div style="text-align: center">
@@ -70,8 +69,8 @@
 
         </div>
         <div class="btnurunyukle">
-          <button @click="slicearttır" type="button" class="btn btn-danger yeniurun">Daha çok ürün yükle
-          </button>
+          <button @click="slicearttır" type="button" class="btn btn-danger yeniurun">Daha çok ürün yükle</button>
+
         </div>
       </div>
     </div>
@@ -80,7 +79,7 @@
 
 </template>
 <script>
-import {collection, getDocs, getDoc, query, orderBy, where,limit} from "firebase/firestore";
+import {collection, getDocs, getDoc, query, orderBy, where, limit} from "firebase/firestore";
 import {db} from "../firebase";
 import {addDoc} from "firebase/firestore";
 import {ref, onMounted} from "vue";
@@ -163,10 +162,10 @@ export default {
   async mounted() {
     console.log(this.getcategorysleng)
 
-    this.querySnapshots = await getDocs(collection(db, 'buzdolabı'));
+    this.querySnapshots = await getDocs(collection(db, 'islemci'));
 
     if (this.getcategorysleng > 0) {
-      this.querySnapshots = await getDocs(query(collection(db, "buzdolabı"), where('brand', "in", this.incategorys)));
+      this.querySnapshots = await getDocs(query(collection(db, "islemci"), where(this.bywhere, "in", this.incategorys)));
     }
 
     let productlist = []
@@ -196,7 +195,16 @@ export default {
       })
     },
 
-
+    // sortByLowPrice: function () {
+    //   return this.products.sort(function (a, b) {
+    //     return a.price - b.price;
+    //   })
+    // },
+    // sortByHigherPrice: function () {
+    //   return this.products.sort(function (a, b) {
+    //     return a.price - b.price;
+    //   })
+    // }
   }
 
 }
@@ -224,22 +232,11 @@ div.arama {
   text-align: center;
 }
 
-div.alldiv {
-  background-color: white;
-  display: flex;
-  text-align: center;
-}
-
 div.sortby {
   text-align: right;
   margin-right: 45px;
 }
 
-div.atry {
-  text-align: center;
-  padding-left: 100px;
-  display: flex;
-}
 
 a.btnfiltre {
   margin-left: 110px;

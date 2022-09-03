@@ -1,11 +1,7 @@
 <template>
 
-  <div>
-
-    <duyurular/>
-    <AnasafaProduct/>
-
-
+    <div class="anaprdotc">
+      <AnasafaProduct/>
   </div>
 
 
@@ -35,7 +31,6 @@ export default {
 
 
 <style>
-
 
 
 

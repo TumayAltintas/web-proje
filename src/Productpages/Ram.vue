@@ -4,7 +4,7 @@
            v-model="searchQuery"
            placeholder="Ürün ara"/>
     <p>{{ this.bybrand }}</p>
-    <p>{{this.$route.query.kategory}}</p>
+    <p>{{ this.$route.query.kategory }}</p>
   </div>
   <!--  <div>-->
   <!--    <label for="customRange" class="form-label">Example range</label>-->
@@ -30,13 +30,11 @@
           Filtre
         </a>
         <ul class="dropdown-menu">
-          <li><a @click="brandbyamd" href="?kategory=asus" class="dropdown-item">Asus</a></li>
-          <li><a @click="brandbyamd" href="?kategory=amd" class="dropdown-item">AMD</a></li>
-          <li><a @click="brandbyamd" href="?kategory=intel" class="dropdown-item">Intel</a></li>
-          <li><a @click="brandbyamd" href="?kategory=samsung" class="dropdown-item">samsung</a></li>
-          <li><a @click="brandbyamd" href="?kategory=ram" class="dropdown-item">ram</a></li>
-          <li><a @click="brandbyamd" href="?kategory=intel" class="dropdown-item">Intel</a></li>
-
+          <li><a @click="brandbyamd" href="?kategory=g.Skill" class="dropdown-item">g.Skill</a></li>
+          <li><a @click="brandbyamd" href="?kategory=corsair" class="dropdown-item">corsair</a></li>
+          <li><a @click="brandbyamd" href="?kategory=kingston" class="dropdown-item">kingston</a></li>
+          <li><a @click="brandbyamd" href="?kategory=team" class="dropdown-item">team</a></li>
+          <li><a @click="brandbyamd" href="?kategory=patriot" class="dropdown-item">patriot</a></li>
         </ul>
       </div>
     </div>
@@ -54,12 +52,9 @@
               <img style="width: 200px" :src="products.image">
             </div>
 
-            <div style="text-align: center">
-              <router-link
-                  :to="{ name: 'showdetails', params: { id: products.id, description: products.description,image: products.image,price: products.price }}">
-                <a class="fw-bold">{{ products.description.substring(0, 30) }}</a>
-              </router-link>
-            </div>
+            <div style="text-align: center"><router-link :to="{ name: 'showdetails', params: { id: products.id, description: products.description,image: products.image,price: products.price }}">
+              <a  class="fw-bold">{{ products.description.substring(0, 30)}}</a>
+            </router-link></div>
             <div style="text-align: center"><span><strong>{{ products.price }} TL</strong></span>
             </div>
 
@@ -79,10 +74,12 @@
         </div>
       </div>
     </div>
+
   </div>
+
 </template>
 <script>
-import {collection, getDocs, getDoc, query, orderBy, where, limit} from "firebase/firestore";
+import {collection, getDocs, getDoc, query, orderBy, where,limit} from "firebase/firestore";
 import {db} from "../firebase";
 import {addDoc} from "firebase/firestore";
 import {ref, onMounted} from "vue";
@@ -106,8 +103,7 @@ export default {
       getcategorysleng: this.$route.query.kategory ? this.$route.query.kategory.length : 0,
       incategorys: this.$route.query.kategory?.split(","),
       bybrand: '',
-      showprice: '',
-
+      showprice: ''
     }
   },
   methods: {
@@ -166,10 +162,10 @@ export default {
   async mounted() {
     console.log(this.getcategorysleng)
 
-    this.querySnapshots = await getDocs(collection(db, 'products'));
+    this.querySnapshots = await getDocs(collection(db, 'ram'));
 
     if (this.getcategorysleng > 0) {
-      this.querySnapshots = await getDocs(query(collection(db, "products"), where(this.bywhere, "in", this.incategorys)));
+      this.querySnapshots = await getDocs(query(collection(db, "ram"), where(this.bywhere, "in", this.incategorys)));
     }
 
     let productlist = []
@@ -197,14 +193,28 @@ export default {
         return Object.values(user).some((word) =>
             String(word).toLowerCase().includes(quary))
       })
-    }
+    },
+
+    // sortByLowPrice: function () {
+    //   return this.products.sort(function (a, b) {
+    //     return a.price - b.price;
+    //   })
+    // },
+    // sortByHigherPrice: function () {
+    //   return this.products.sort(function (a, b) {
+    //     return a.price - b.price;
+    //   })
+    // }
   }
 
 }
 </script>
 <style scoped>
 div.Product {
+
+
   width: 250px;
+
 }
 
 button.yeniurun {
@@ -220,7 +230,6 @@ div.btnurunyukle {
 
 div.arama {
   text-align: center;
-  margin-top: 150px;
 }
 
 div.sortby {
@@ -228,7 +237,9 @@ div.sortby {
   margin-right: 45px;
 }
 
+
 a.btnfiltre {
   margin-left: 110px;
 }
 </style>
+

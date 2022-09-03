@@ -1,60 +1,79 @@
 <template>
   <nav class="navbar topheader " role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
-
-
       <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
       </a>
     </div>
-
     <div id="navbarBasicExample" class="navbar-menu">
-
       <div class="navbar-start">
-
         <router-link class=" fs-4" tag="li" to="/">
           <img src="../components/Pictures/TopHeader/lgma.png">
         </router-link>
-
-        <router-link class="navbar-item fs-4" tag="li" to="/UrunYukle">
-          <a style="color:dodgerblue;" class=" fw-bold ">UrunYukle</a>
-        </router-link>
-        <!--        <router-link class="navbar-item fs-4" tag="li" to="/sepet">-->
-        <!--          <a style="color:dodgerblue;" class=" fw-bold">sepet</a>-->
-        <!--        </router-link>-->
-
-        <!--        <router-link class="navbar-item fs-4" tag="li" to="/test">-->
-        <!--          <a style="color:dodgerblue;" class=" fw-bold">test</a>-->
-        <!--        </router-link>-->
-        <!--        <router-link class="navbar-item" tag="li" to="/sadece">-->
-        <!--          <a class="nav-link" href="#">sadece</a>-->
-        <!--        </router-link>-->
-        <!--        <router-link class="navbar-item" tag="li" to="/register">-->
-        <!--          <a class="nav-link" href="#">register</a>-->
-        <!--        </router-link>-->
 
         <div class="navbar-item has-dropdown is-hoverable">
           <a style="color:dodgerblue;" class="navbar-link fw-bold">
             Kategoriler
           </a>
-
           <div class="navbar-dropdown">
-            <a class="nav-item">
-              <router-link tag="li" to="/bilgisayar">
-                <a class="fs-5 fw-bold">Bilgisayar</a>
-              </router-link>
-            </a>
+
+
+
+              <div class="navbar-dropdown">
+                <div>
+                  <div class="btn-group dropend">
+                    <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                      <a class="fs-5 fw-bold">Bilgisayar</a>
+                    </button>
+                    <ul class="dropdown-menu">
+                      <router-link tag="li" to="/bilgisayar/Ram">
+                        <a class="fs-5 fw-bold">Ram</a>
+                      </router-link>
+                      <br>
+                      <router-link tag="li" to="/bilgisayar/Islemci">
+                        <a class="fs-5 fw-bold">İşlemci</a>
+                      </router-link>
+                      <br>
+                      <router-link tag="li" to="/bilgisayar/Ekrankarti">
+                        <a class="fs-5 fw-bold">Ekran kartı</a>
+                      </router-link>
+                    </ul>
+                  </div>
+                  <!--            <a class="nav-item">-->
+                  <!--              <router-link tag="li" to="/bilgisayar">-->
+                  <!--                <a class="fs-5 fw-bold">Bilgisayar</a>-->
+                  <!--              </router-link>-->
+                  <!--            </a>-->
+                </div>
+
+                <div class="btn-group dropend">
+                  <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="fs-5 fw-bold">Beyaz eşya</a>
+                  </button>
+                  <ul class="dropdown-menu">
+                    <router-link tag="li" to="/Beyazesya/buzdolabi">
+                      <a class="fs-5 fw-bold">buzdolabı</a>
+                    </router-link>
+                    <br>
+                    <router-link tag="li" to="/Beyazesya/microdalgafirin">
+                      <a class="fs-5 fw-bold">Microdalga fırın</a>
+                    </router-link>
+                    <br>
+                    <router-link tag="li" to="/Beyazesya/camasirmakinesi">
+                      <a class="fs-5 fw-bold">Çamaşır makinesi</a>
+                    </router-link>
+                  </ul>
+                  <br>
+                </div>
+                <br>
+                <hr class="navbar-divider">
+              </div>
+
             <br>
             <a class="nav-item">
-              <router-link tag="li" to="/Buzdolabı">
-                <a class="fs-5 fw-bold">buzdolabı</a>
-              </router-link>
-            </a>
-            <br>
-            <a class="nav-item">
-              <router-link tag="li" to="/Televizyon">
+              <router-link tag="li" to="/UrunYukle">
                 <a class="fs-5 fw-bold">Televizyon</a>
               </router-link>
             </a>
@@ -141,33 +160,7 @@
                         </router-link>
                       </a>
                     </div>
-                    <!--                    <div class="ofcanvasLink">-->
-                    <!--                      <a class="nav-item">-->
-                    <!--                        <router-link tag="li" to="/cart">-->
-                    <!--                          <a style="color:dodgerblue;" class="nav-item ">-->
-                    <!--                            <img src="../components/Pictures/ProductDiscription/icons8-hearts-48.png">-->
-                    <!--                            Beğendiklerim</a>-->
-                    <!--                        </router-link>-->
-                    <!--                      </a>-->
-                    <!--                    </div>-->
-<!--                    <div class="ofcanvasLink">-->
-<!--                      <a class="nav-item">-->
-<!--                        <router-link tag="li" to="/cart">-->
-<!--                          <a style="color:dodgerblue;" class="nav-item ">-->
-<!--                            <img src="../components/Pictures/TopHeader/icons8-address-100.png">-->
-<!--                            Adreslerim</a>-->
-<!--                        </router-link>-->
-<!--                      </a>-->
-<!--                    </div>-->
-<!--                    <div class="ofcanvasLink">-->
-<!--                      <a class="nav-item">-->
-<!--                        <router-link tag="li" to="/cart">-->
-<!--                          <a style="color:dodgerblue;" class="nav-item ">-->
-<!--                            <img src="../components/Pictures/TopHeader/icons8-lock-100.png">-->
-<!--                            Güvenlik</a>-->
-<!--                        </router-link>-->
-<!--                      </a>-->
-<!--                    </div>-->
+
                     <div class="ofcanvasLink">
                       <a class="nav-item">
                         <a style="color:dodgerblue;" class="nav-item" @click="handleSignOut">

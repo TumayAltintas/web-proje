@@ -25,35 +25,37 @@
           </div>
 <!--          <label>kayıt yeri</label>-->
 <!--          <select v-model="yer"  class="form-select" aria-label="Default select example">-->
-<!--            <option value="products">products</option>-->
-<!--&lt;!&ndash;            <option value="işlemci">işlemci</option>&ndash;&gt;-->
-<!--&lt;!&ndash;            <option value="ram">ram</option>&ndash;&gt;-->
+<!--            <option value="fırın">fırın</option>-->
+<!--            <option value="microdalgafırın">microdalgafırın</option>-->
+<!--            <option value="bulasikmakinesi">bulasıkmakinesi</option>-->
+<!--            <option value="camasirmakinesi">camasırmakinesi</option>-->
 <!--          </select>-->
-<!--          <div class="form-group">-->
-<!--            <label>Kategori</label>-->
-<!--            <select v-model="kategoris"  class="form-select" aria-label="Default select example">-->
-<!--              <option value="beyazeşya">beyazeşya</option>-->
-<!--&lt;!&ndash;              <option value="işlemci">işlemci</option>&ndash;&gt;-->
-<!--&lt;!&ndash;              <option value="ram">ram</option>&ndash;&gt;-->
-<!--            </select>-->
-<!--          </div>-->
+  <!--          <div class="form-group">-->
+  <!--            <label>Kategori</label>-->
+  <!--            <select v-model="kategoris"  class="form-select" aria-label="Default select example">-->
+  <!--              <option value="beyazeşya">beyazeşya</option>-->
+  <!--              <option value="işlemci">işlemci</option>-->
+  <!--              <option value="ram">ram</option>-->
+  <!--            </select>-->
+  <!--          </div>-->
 <!--          <div class="form-group">-->
 <!--            <label>type</label>-->
 <!--            <select v-model="types"  class="form-select" aria-label="Default select example">-->
-<!--              <option value="buzdolabi">buzdolabi</option>-->
-<!--              <option value="çamaşırmakinesi">çamaşırmakinesi</option>-->
-<!--              <option value="ocak">ocak</option>-->
 <!--              <option value="mikrodalgafırın">mikrodalgafırın</option>-->
 <!--              <option value="bulaşıkmakinesi">bulaşıkmakinesi</option>-->
+<!--              <option value="camasirmakinesi">camasirmakinesi</option>-->
 <!--            </select>-->
 <!--          </div>-->
           <div class="form-group">
             <label>Marka</label>
             <select v-model="marka"  class="form-select" aria-label="Default select example">
-<!--              <option value="vestel">vestel</option>-->
-<!--              <option value="bosch">bosch</option>-->
-              <option value="samsung">samsung</option>
-<!--              <option value="vestel">vestel</option>-->
+              <option value="patriot">patriot</option>
+              <option value="kingston">kingston</option>
+              <option value="corsair">corsair</option>
+              <option value="beko">beko</option>
+              <option value="g.Skill">g.Skill</option>
+              <option value="corsair">corsair</option>
+              <option value="beko">beko</option>
             </select>
           </div>
           <div class="button-container d-flex  flex-column align-items-center">
@@ -82,7 +84,9 @@ data(){
     types : '',
     marka : '',
     yer : '',
-    shwproce : ''
+    shwproce : '',
+    brand : '',
+    nesne :  ''
 
   }
 },
@@ -92,19 +96,17 @@ data(){
 
     async addItemToCart(products) {
 
-      const docRef = await addDoc(collection(db, 'buzdolabı'), {
+      const docRef = await addDoc(collection(db, 'ram'), {
         description: this.descriptions,
         image: this.images,
         price: this.prices,
-        brand : 'lg',
-        showprice : this.shwproce
+        brand : this.marka,
+        showprice : this.shwproce,
+
+
 
       });
-
-
       window.location.reload();
-
-
     },
 
 

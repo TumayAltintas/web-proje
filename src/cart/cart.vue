@@ -25,7 +25,11 @@
       <button @click="sil(products)" type="button" class="btn btn-danger">Sil</button>
     </div>
     <br>
+    <div>
+
+    </div>
   </div>
+
 
 
 
@@ -50,12 +54,9 @@ export default {
 
       product: '',
       deletid: ''
-
-
-
     }
-
   },
+
 
   async mounted() {
     const querySnapshot = await getDocs(collection(db, 'sepet'));

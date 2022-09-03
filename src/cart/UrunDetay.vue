@@ -1,22 +1,22 @@
-
 <template>
 
   <div>
     <div class="container container-space">
-      <div  class="row shadow-lg p-3 mb-5 bg-body rounded">
+      <div class="row shadow-lg p-3 mb-5 bg-body rounded">
         <div class="col-md-6">
-          <img class="img-fluid" :src="this.$route.params.image"  />
+          <img class="img-fluid" :src="this.$route.params.image"/>
         </div>
         <div class="col-md-4">
-          <p class="fs-3">{{this.$route.params.description}}</p>
+          <p class="fs-3">{{ this.$route.params.description }}</p>
           <br>
           <br>
           <br>
-          <p class="fs-3">{{this.$route.params.price}} TL</p>
+          <p class="fs-3">{{ this.$route.params.price }} TL</p>
           <br>
           <br>
           <br>
-          <button type="button" class="btn btn-outline-primary btn-lg btn-block btn-custom-color" @click="addItemToCart">
+          <button type="button" class="btn btn-outline-primary btn-lg btn-block btn-custom-color"
+                  @click="addItemToCart">
             Sepete ekle
           </button>
           <button type="button" class="btn btn-outline-primary btn-lg btn-block btn-custom-color" @click="addToList">
@@ -36,9 +36,9 @@ import {db} from "../firebase";
 
 export default {
 
-  data(){
-    return{
-      setprice : '',
+  data() {
+    return {
+      setprice: '',
       setdescription: '',
       setimage: ''
     }
@@ -68,7 +68,6 @@ export default {
       this.setprice = this.$route.params.price
 
 
-
       const docRef = await addDoc(collection(db, "isteklistem"), {
         description: this.setdescription,
         image: this.setimage,
@@ -90,6 +89,7 @@ body {
   font-family: "Nunito", sans-serif;
   background-color: #eeeeee;
 }
+
 .container-space {
   margin-top: 2rem;
 }
@@ -99,9 +99,11 @@ body {
   list-style: none;
   padding-left: 0;
 }
+
 .product-thumbnails > li {
   margin-right: 10px;
 }
+
 .product-thumbnails > ul > li > img {
   width: 100px;
   cursor: pointer;
@@ -111,6 +113,7 @@ body {
   border: 2px solid #4fc08d;
   color: #4fc08d;
 }
+
 .btn-custom-color:hover {
   border: 2px solid #4fc08d;
   background-color: #4fc08d;

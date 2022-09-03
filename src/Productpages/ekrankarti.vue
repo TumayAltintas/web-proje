@@ -4,7 +4,7 @@
            v-model="searchQuery"
            placeholder="Ürün ara"/>
     <p>{{ this.bybrand }}</p>
-    <p>{{this.$route.query.kategory}}</p>
+    <p>{{ this.$route.query.kategory }}</p>
   </div>
   <!--  <div>-->
   <!--    <label for="customRange" class="form-label">Example range</label>-->
@@ -30,13 +30,12 @@
           Filtre
         </a>
         <ul class="dropdown-menu">
-          <li><a @click="brandbyamd" href="?kategory=asus" class="dropdown-item">Asus</a></li>
-          <li><a @click="brandbyamd" href="?kategory=amd" class="dropdown-item">AMD</a></li>
-          <li><a @click="brandbyamd" href="?kategory=intel" class="dropdown-item">Intel</a></li>
-          <li><a @click="brandbyamd" href="?kategory=samsung" class="dropdown-item">samsung</a></li>
-          <li><a @click="brandbyamd" href="?kategory=ram" class="dropdown-item">ram</a></li>
-          <li><a @click="brandbyamd" href="?kategory=intel" class="dropdown-item">Intel</a></li>
-
+          <li><a @click="brandbyamd" href="?kategory=sapphire" class="dropdown-item">sapphire</a></li>
+          <li><a @click="brandbyamd" href="?kategory=asus" class="dropdown-item">asus</a></li>
+          <li><a @click="brandbyamd" href="?kategory=gainward" class="dropdown-item">gainward</a></li>
+          <li><a @click="brandbyamd" href="?kategory=msi" class="dropdown-item">msi</a></li>
+          <li><a @click="brandbyamd" href="?kategory=zotac" class="dropdown-item">zotac</a></li>
+          <li><a @click="brandbyamd" href="?kategory=gigabyte" class="dropdown-item">gigabyte</a></li>
         </ul>
       </div>
     </div>
@@ -79,7 +78,9 @@
         </div>
       </div>
     </div>
+
   </div>
+
 </template>
 <script>
 import {collection, getDocs, getDoc, query, orderBy, where, limit} from "firebase/firestore";
@@ -106,8 +107,7 @@ export default {
       getcategorysleng: this.$route.query.kategory ? this.$route.query.kategory.length : 0,
       incategorys: this.$route.query.kategory?.split(","),
       bybrand: '',
-      showprice: '',
-
+      showprice: ''
     }
   },
   methods: {
@@ -166,10 +166,10 @@ export default {
   async mounted() {
     console.log(this.getcategorysleng)
 
-    this.querySnapshots = await getDocs(collection(db, 'products'));
+    this.querySnapshots = await getDocs(collection(db, 'ekrankartı'));
 
     if (this.getcategorysleng > 0) {
-      this.querySnapshots = await getDocs(query(collection(db, "products"), where(this.bywhere, "in", this.incategorys)));
+      this.querySnapshots = await getDocs(query(collection(db, "ekrankartı"), where(this.bywhere, "in", this.incategorys)));
     }
 
     let productlist = []
@@ -197,14 +197,28 @@ export default {
         return Object.values(user).some((word) =>
             String(word).toLowerCase().includes(quary))
       })
-    }
+    },
+
+    // sortByLowPrice: function () {
+    //   return this.products.sort(function (a, b) {
+    //     return a.price - b.price;
+    //   })
+    // },
+    // sortByHigherPrice: function () {
+    //   return this.products.sort(function (a, b) {
+    //     return a.price - b.price;
+    //   })
+    // }
   }
 
 }
 </script>
 <style scoped>
 div.Product {
+
+
   width: 250px;
+
 }
 
 button.yeniurun {
@@ -220,7 +234,6 @@ div.btnurunyukle {
 
 div.arama {
   text-align: center;
-  margin-top: 150px;
 }
 
 div.sortby {
@@ -228,7 +241,9 @@ div.sortby {
   margin-right: 45px;
 }
 
+
 a.btnfiltre {
   margin-left: 110px;
 }
 </style>
+

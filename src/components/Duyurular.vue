@@ -39,11 +39,8 @@ export default {
 <style scoped>
 
 div.dyr{
-  padding-left: 520px;
-  padding-top: 100px;
+  text-align: center;
   position: absolute;
-
-
 
 }
 
