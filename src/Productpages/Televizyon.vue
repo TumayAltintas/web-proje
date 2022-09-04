@@ -4,11 +4,6 @@
            v-model="searchQuery"
            placeholder="Ürün ara"/>
   </div>
-  <!--  <div>-->
-  <!--    <label for="customRange" class="form-label">Example range</label>-->
-  <!--    <input v-model="stepprice" type="range" class="form-range" min="0" max="20000" id="customRange">-->
-  <!--    <p style="text-align: center">{{stepprice}}</p>-->
-  <!--  </div>-->
   <div class="dropdown-center sortby">
     <div class="dropdown">
       <a class="btn btn-light dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -18,23 +13,6 @@
         <li><a @click="sortby" class="dropdown-item">Fiyat artan</a></li>
         <li><a @click="longby" class="dropdown-item">Fiyat azalan</a></li>
       </ul>
-    </div>
-  </div>
-  <div style="display: flex" class="allsearch">
-    <div class="dropdown-center">
-      <div class="dropdown">
-        <a class="btn btn-warning dropdown-toggle btnfiltre" href="#" role="button" data-bs-toggle="dropdown"
-           aria-expanded="false">
-          Filtre
-        </a>
-        <ul class="dropdown-menu">
-          <li><a @click="brandby" href="?kategory=daewoo" class="dropdown-item">daewoo</a></li>
-          <li><a @click="brandby" href="?kategory=grundig" class="dropdown-item">grundig</a></li>
-          <li><a @click="brandby" href="?kategory=axen" class="dropdown-item">axen</a></li>
-
-
-        </ul>
-      </div>
     </div>
   </div>
   <div style="display: flex" class="container">

@@ -7,10 +7,8 @@ import 'animate.css'
 import 'bulma/css/bulma.css'
 import { getFirestore } from 'firebase/firestore';
 import { initializeApp } from "firebase/app";
-import store from "./stores/counter";
+
 import {useCounterStore} from "./piniaStore";
-
-
 // const firebaseConfig = {
 // 	apiKey: "AIzaSyANU9F5rwWo9S6xucGvmxF5lm-MyjwXTto",
 // 	authDomain: "vueeee-tmy.firebaseapp.com",
@@ -23,11 +21,7 @@ import {useCounterStore} from "./piniaStore";
 //
 // initializeApp(firebaseConfig);
 //
-
-
-
 const app = createApp(App)
-app.use(store)
 app.use(router)
 
 app.mount('#app')

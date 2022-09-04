@@ -8,48 +8,24 @@
             <div class="card" style="border-radius: 15px;">
               <div class="card-body p-5">
                 <h2 class="text-uppercase text-center mb-5">Üye Ol</h2>
-
                 <form>
-
-<!--                  <div class="form-outline mb-4">-->
-<!--                    <input type="text" id="form3Example1cg" class="form-control form-control-lg" />-->
-<!--                    <label class="form-label" for="form3Example1cg">Your Name</label>-->
-<!--                  </div>-->
-
                   <div class="form-outline mb-4">
                     <input v-model="email" type="email" id="form3Example3cg" class="form-control form-control-lg" />
                     <label class="form-label" for="form3Example3cg">Email</label>
                   </div>
-
                   <div class="form-outline mb-4">
                     <input v-model="password" type="password" id="form3Example4cg" class="form-control form-control-lg" />
                     <label class="form-label" for="form3Example4cg">Şifre</label>
                   </div>
-
-<!--                  <div class="form-outline mb-4">-->
-<!--                    <input type="password" id="form3Example4cdg" class="form-control form-control-lg" />-->
-<!--                    <label class="form-label" for="form3Example4cdg">Repeat your password</label>-->
-<!--                  </div>-->
-
-                  <div class="form-check d-flex justify-content-center mb-5">
-                    <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3cg" />
-                    <label class="form-check-label" for="form2Example3g">
-                       <a href="#!" class="text-body"><u>Üyelik Sözleşmesi'ni okudum, onaylıyorum</u></a>
-                    </label>
-                  </div>
-
                   <div class="d-flex justify-content-center">
                     <button @click="register" type="button"
                             class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Üye ol</button>
                   </div>
-
                    <router-link tag="li" to="/log">
                      <p class="text-center text-muted mt-5 mb-0">Üyeliğim var
                   </p>
                   </router-link>
-
                 </form>
-
               </div>
             </div>
           </div>

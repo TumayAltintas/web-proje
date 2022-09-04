@@ -14,7 +14,7 @@ export const useCounterStore = defineStore('counter', {
     },
     actions: {
        async increment() {
-           const querySnapshot = await getDocs(collection(db, 'products'));
+           let querySnapshot = await getDocs(collection(db, 'products'));
            let productlist = []
            querySnapshot.forEach((doc) => {
                const list = {

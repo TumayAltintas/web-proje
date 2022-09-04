@@ -34,9 +34,11 @@
           <li><a @click="brandbyamd" href="?kategory=amd" class="dropdown-item">AMD</a></li>
           <li><a @click="brandbyamd" href="?kategory=intel" class="dropdown-item">Intel</a></li>
           <li><a @click="brandbyamd" href="?kategory=samsung" class="dropdown-item">samsung</a></li>
-          <li><a @click="brandbyamd" href="?kategory=ram" class="dropdown-item">ram</a></li>
-          <li><a @click="brandbyamd" href="?kategory=intel" class="dropdown-item">Intel</a></li>
-
+          <li><a @click="brandbyamd" href="?kategory=g.Skill" class="dropdown-item">g.Skill</a></li>
+          <li><a @click="brandbyamd" href="?kategory=corsair" class="dropdown-item">corsair</a></li>
+          <li><a @click="brandbyamd" href="?kategory=kingston" class="dropdown-item">kingston</a></li>
+          <li><a @click="brandbyamd" href="?kategory=team" class="dropdown-item">team</a></li>
+          <li><a @click="brandbyamd" href="?kategory=patriot" class="dropdown-item">patriot</a></li>
         </ul>
       </div>
     </div>

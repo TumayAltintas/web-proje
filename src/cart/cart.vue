@@ -1,5 +1,5 @@
 <template>
-  <div style="display: flex;"  class="hpt" v-for="products in product">
+  <div style="display: flex;"  class="hpt" v-for="(products, number) in product">
 
     <div class="pic">
       <img :src="products.image">
@@ -25,10 +25,8 @@
       <button @click="sil(products)" type="button" class="btn btn-danger">Sil</button>
     </div>
     <br>
-    <div>
-
-    </div>
   </div>
+
 
 
 
@@ -53,7 +51,7 @@ export default {
     return {
 
       product: '',
-      deletid: ''
+      deletid: '',
     }
   },
 
@@ -67,14 +65,16 @@ export default {
         description: doc.data().description,
         image: doc.data().image,
         name: doc.data().name,
-        price: doc.data().price,}
-      productlist.push(list)});
+        price: doc.data().price,
+      }
+      productlist.push(list)
+    });
     this.product = productlist
   },
 
 
   methods: {
-    async sil(products)  {
+    async sil(products) {
 
       this.deletid = products.id
       console.log(this.deletid)
@@ -84,7 +84,6 @@ export default {
 
     }
   },
-
 }
 
 </script>

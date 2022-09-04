@@ -1,4 +1,4 @@
-<template>
+template>
 
 <app-phone  v-on:addItemToCart="addItemToCart"></app-phone>
   <app-cart ></app-cart>

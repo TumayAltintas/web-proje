@@ -13,6 +13,7 @@
           <img src="../components/Pictures/TopHeader/lgma.png">
         </router-link>
 
+
         <div class="navbar-item has-dropdown is-hoverable">
           <a style="color:dodgerblue;" class="navbar-link fw-bold">
             Kategoriler
@@ -73,7 +74,7 @@
 
             <br>
             <a class="nav-item">
-              <router-link tag="li" to="/UrunYukle">
+              <router-link tag="li" to="/Televizyon">
                 <a class="fs-5 fw-bold">Televizyon</a>
               </router-link>
             </a>
