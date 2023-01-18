@@ -227,5 +227,6 @@ div.sortby {
 a.btnfiltre {
   margin-left: 110px;
 }
+
 </style>
 

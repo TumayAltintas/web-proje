@@ -19,9 +19,6 @@
             Kategoriler
           </a>
           <div class="navbar-dropdown">
-
-
-
               <div class="navbar-dropdown">
                 <div>
                   <div class="btn-group dropend">
@@ -232,7 +229,6 @@ const handleSignOut = () => {
   signOut(auth).then(() => {
     router.push("/")
   })
-
 }
 
 </script>

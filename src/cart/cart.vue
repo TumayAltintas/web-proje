@@ -75,13 +75,10 @@ export default {
 
   methods: {
     async sil(products) {
-
       this.deletid = products.id
       console.log(this.deletid)
-
       await deleteDoc(doc(db, "sepet", this.deletid));
       window.location.reload();
-
     }
   },
 }
